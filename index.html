@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weightlifting</title>
+  </head>
+  <style>
+    body {
+      background: burlywood;
+    }
+    h1 {
+      text-align: center;
+      font-family: "Bebas Neue", sans-serif;
+    }
+    h2 {
+      text-align: center;
+      font-family: "Raleway", sans-serif;
+    }
+    p {
+      text-align: center;
+      line-height: 1.5;
+      font-family: "Roboto", sans-serif;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+      padding: 5px;
+    }
+    .container {
+      display: block;
+      margin: 30px auto;
+      max-width: 800px;
+      background: bisque;
+      padding: 20px;
+      border-radius: 20px;
+    }
+    .theme-change {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 15px;
+      border: 1px solid black;
+      border-radius: 15px;
+      background: black;
+      transition: all 150ms ease-in-out;
+      color: burlywood;
+    }
+
+    .theme-change:hover {
+      background: burlywood;
+      color: black;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .first-pic {
+      border-radius: 15px;
+      transition: all 150ms ease-in-out;
+    }
+    .first-pic:hover {
+      transform: scale(1.06);
+      cursor: pointer;
+      filter: contrast(80%);
+    }
+    a {
+      color: burlywood;
+    }
+    a:hover {
+      color: rgb(250, 202, 139);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 3px;
+      grid-row-gap: 3px;
+    }
+    .grid img {
+      width: 100%;
+      height: 500px;
+    }
+    .dark {
+      background-color: black;
+      color: white;
+    }
+    .dark .container {
+      background-color: rgba(225, 225, 225, 0.2);
+    }
+    .dark .theme-change,
+    .dark .cta-button {
+      background-color: black;
+      color: white;
+      border: 1px solid grey;
+    }
+
+    .dark .theme-change:hover,
+    .dark .cta-button:hover {
+      border: 1px solid white;
+      background: grey;
+      color: black;
+    }
+    .dark a {
+      color: grey;
+    }
+    .cta-button {
+      display: block;
+      margin: 20px auto;
+      border: 1px solid burlywood;
+      background: burlywood;
+      padding: 20px 25px;
+      border-radius: 40px;
+      width: 30%;
+      transition: all 150ms ease-in-out;
+    }
+    .cta-button:hover {
+      cursor: pointer;
+      background: transparent;
+    }
+  </style>
+  <body>
+    <button class="theme-change">Dark theme</button>
+    <div class="container">
+      <h1>The Art of Lifting</h1>
+      <h2>Unlock Your Lifting Potential</h2>
+      <img
+        class="first-pic"
+        src="https://i.pinimg.com/474x/63/37/70/633770d270f2fb5fc70cee022449cbf3.jpg"
+        alt="Women lifting weights"
+      />
+      <div class="grid">
+        <img
+          src="https://i.pinimg.com/474x/f0/d0/18/f0d018cd0e436c5e2d2fb92fc941edd3.jpg"
+          alt="Woman lifting a barbell"
+        />
+        <img
+          src="https://i.pinimg.com/474x/90/8f/bc/908fbc6a65f3495a743750affc657764.jpg"
+          alt="A woman attempting a deadlift"
+        />
+        <img
+          src="https://i.pinimg.com/474x/04/c6/a1/04c6a1b8e252427ef2cf21f14debd3d8.jpg"
+          alt="A woman flexing"
+        />
+        <img
+          src="https://i.pinimg.com/474x/8d/2e/da/8d2eda4773f74749df84920c80c4b8e4.jpg"
+          alt="A woman flexing 2"
+        />
+      </div>
+      <p>
+        Weightlifting or weight lifting generally refers to physical exercises
+        and sports in which people lift weights, often in the form of
+        (dumbbells, barbells or machines). People engage in weightlifting for a
+        variety of different reasons. These can include: developing physical
+        strength; promoting health and fitness; competing in weightlifting
+        sports; and developing a muscular and aesthetic physique.
+      </p>
+      <a href="https://en.wikipedia.org/wiki/Weightlifting" target="_blank"
+        >Read more</a
+      >
+      <button class="cta-button">Get Started</button>
+    </div>
+    <footer>Coded by Barakat</footer>
+    <script>
+      function newtheme() {
+        let body = document.querySelector("body");
+        if (body.classList.contains("dark")) {
+          body.classList.remove("dark");
+        } else {
+          body.classList.add("dark");
+        }
+      }
+      let themebutton = document.querySelector(".theme-change ");
+      themebutton.addEventListener("click", newtheme);
+
+      function showPopup() {
+        let name = prompt("Enter your name: ");
+        if (name) {
+          let challenge = prompt(
+            `${name}, ready for our 30-day weightlifting journey? (yes/no)`
+          )
+            .toLowerCase()
+            .trim();
+          if (challenge === "yes") {
+            alert(`Awesome, ${name}! We'll send you details to get started.`);
+          } else if (challenge === "no") {
+            alert(
+              `No worries, ${name}. Feel free to explore more about weightlifting!`
+            );
+          } else {
+            alert("Invalid input. Please respond with 'yes' or 'no'.");
+          }
+        } else {
+          alert("Please provide your name to continue.");
+        }
+      }
+
+      let journeyButton = document.querySelector(".cta-button");
+      journeyButton.addEventListener("click", showPopup);
+    </script>
+  </body>
+</html>
